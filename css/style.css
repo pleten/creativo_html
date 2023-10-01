@@ -643,8 +643,8 @@ body {
 }
 
 .team_member_card {
-    width: 340px;
-    height: 510px;
+    width: 100%;
+    max-height: 510px;
     perspective: 1000px;
 }
 
@@ -662,30 +662,33 @@ body {
 }
 
 .team_members_list {
-    display: flex;
-    /*gap: 26px;*/
-    justify-content: space-between;
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(4, 1fr);
 }
 
 .team_member_photo, .team_member_data {
-    position: absolute;
     width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
+.team_member_photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 .team_member_photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: 50% 50%;
+    object-position: 50% 0;
 }
 
 .team_member_data {
-    position: absolute;
-    top: 0;
-    left: 0;
+
 
     padding: 56px 30px 73px;
     color: white;
@@ -713,6 +716,7 @@ body {
     font-size: 18px;
     font-weight: 300;
     line-height: 28px;
+    margin-bottom: 20px;
 }
 
 .social_media_icons {
@@ -747,28 +751,31 @@ body {
 
 .blog_cards {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 28px;
+    row-gap: 40px;
 }
 
 .blog_card {
     position: relative;
     background: #11161C;
     border-radius: 0 90px 0 0;
+    width: min(100%, 460px);
 
 }
 
 .blog_link {
     display: block;
     padding: 24px 23px 50px;
-    width: min-content;
     text-decoration: none;
     position: relative;
     z-index: 10;
 }
 
 .blog_photo_wrap {
-    height: 415px;
-    width: 415px;
+    aspect-ratio: 1/1;
+    width: 100%;
     position: relative;
     margin-bottom: 24px;
 }
@@ -897,8 +904,7 @@ body {
 .contact_us_grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: max(120px, 20%);
-
+    grid-gap: 120px;
 }
 
 .contact_form {
@@ -1090,8 +1096,15 @@ footer .social_media_icons {
     .what_we_do_grid {
         grid-template-columns: 1fr 1fr 1fr;
     }
+
     .achievement_item {
         padding: 30px;
+    }
+
+    .team_members_list {
+        margin: 0 auto;
+        width: min(100%, 900px);
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
@@ -1138,22 +1151,31 @@ footer .social_media_icons {
         grid-column: span 9;
         padding-left: 56px;
     }
+
     .testimonials {
         padding: 80px 0 40px;
     }
+
     .testimonials_flex {
         display: block;
     }
+
     .testimonials_image_slider {
         float: left;
         width: 280px;
         margin-right: 30px;
     }
+
     .review_block {
         padding-top: 0;
     }
+
     .customer_comment_item {
         padding-right: 54px;
+    }
+
+    .contact_us_grid {
+        grid-gap: 120px;
     }
 }
 
@@ -1190,20 +1212,32 @@ footer .social_media_icons {
     .what_we_do_grid {
         grid-template-columns: 1fr 1fr;
     }
+
     .our_achievements {
         background-color: #2B61F7;
         padding-top: 30px;
         padding-bottom: 25px;
     }
+
     .achievement_item {
         padding: 20px;
     }
+
     .achievement_count {
         font-size: 24px;
         margin-bottom: 8px;
     }
+
     .achievement_label {
         font-size: 12px;
+    }
+    .contact_us_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+    }
+    .contacts_block:last-child {
+        margin-bottom: 120px;
     }
 }
 
@@ -1211,8 +1245,9 @@ footer .social_media_icons {
     .testimonials_image_slider {
         display: none;
     }
+
     .customer_comment_item {
-       height: auto;
+        height: auto;
     }
 }
 
@@ -1242,10 +1277,12 @@ footer .social_media_icons {
     .achievement_item {
         padding: 10px;
     }
+
     .achievement_count {
         font-size: 16px;
         margin-bottom: 6px;
     }
+
     .achievement_label {
         font-size: 8px;
     }
@@ -1258,6 +1295,7 @@ footer .social_media_icons {
         padding-top: 20px;
         grid-column: span 20;
     }
+
     .our_works_item2 {
         grid-column: span 20;
     }
@@ -1266,16 +1304,30 @@ footer .social_media_icons {
         grid-column: span 12;
         order: -1
     }
+
     .our_works_item4 {
         grid-column: span 8;
     }
+
     .our_works_item1 {
         grid-column: span 7;
     }
+
     .our_works_item5 {
         grid-column: span 13;
     }
+
     .what_we_do_grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .our_team h2 {
+        margin-bottom: 62px;
+    }
+
+    .team_members_list {
+        /*margin: 0 auto;*/
+        width: min(100%, 400px);
+        grid-template-columns: repeat(1, 1fr);
     }
 }
